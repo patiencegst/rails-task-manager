@@ -1,0 +1,17 @@
+<h1> My tasks  </h1>
+<ul>
+  <%# binding.pry %>
+  <% @tasks.each do |task| %>
+  <li>
+    <% if task.completed == true %>
+      <i class="far fa-check-square"></i><%= link_to task.title, task_path(task) %>
+    <% else %>
+      <i class="fal fa-check-square"></i><%= link_to task.title, task_path(task)%>
+    <% end %>
+      <%= link_to task_path(task), method: :delete do %>
+      <i class="fa fa-trash"></i>
+    <% end %>
+  <% end %></li>
+  <p> <%= link_to 'Create Task',new_path %> </p>
+</ul>
+
